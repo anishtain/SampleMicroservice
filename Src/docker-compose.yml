@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  catalogmicroservice.api:
+    image: ${DOCKER_REGISTRY-}catalogmicroserviceapi
+    build:
+      context: .
+      dockerfile: Services/Catalog/CatalogMicroservice.Api/Dockerfile
