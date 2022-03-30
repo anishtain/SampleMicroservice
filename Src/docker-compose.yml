@@ -5,10 +5,20 @@ services:
   catalogdb : 
     image: mongo
     
+  basketdb : 
+    image: redis:alpine
+    
   catalogmicroservice.api:
     image: ${DOCKER_REGISTRY-}catalogmicroserviceapi
     build:
       context: .
       dockerfile: Services/Catalog/CatalogMicroservice.Api/Dockerfile
+
+  basketmicroservice.api:
+    image: ${DOCKER_REGISTRY-}basketmicroserviceapi
+    build:
+      context: .
+      dockerfile: Services/Basket/BasketMicroservice.Api/Dockerfile
+
 volumes:
   mongo_data :
